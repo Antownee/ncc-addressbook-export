@@ -29,7 +29,7 @@ Install required packages
 ```
 npm install
 ```
-
+**Before running the script, make sure your local NCC instance is running!** 
 Run the script
 
 ```
