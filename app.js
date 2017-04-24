@@ -32,6 +32,9 @@ async.waterfall([
                 }
             },
             (inf) => {
+                if (inf.message === "ADDRESS_BOOK_DOES_NOT_EXIST" || inf.message === "ADDRESS_BOOK_PASSWORD_INCORRECT") {
+                    return cb(new Error(inf.message));
+                }
                 walletName = inf.addressBook;
                 var addressObjects = inf.accountLabels;
                 var formattedAddresses = _.map(addressObjects, (add) => {
@@ -66,6 +69,12 @@ async.waterfall([
         //err.code || err.errno == "ECONNREFUSED"
         if (err.code === "ECONNREFUSED" || err.errno === "ECONNREFUSED") {
             console.log("Please make sure that your NCC instance is running prior to running this tool.");
+            process.exit(1);
+        } else if (err.message === "ADDRESS_BOOK_DOES_NOT_EXIST") {
+            console.log("Invalid Address book name.");
+            process.exit(1);
+        } else if (err.message === "ADDRESS_BOOK_PASSWORD_INCORRECT") {
+            console.log("Invalid password.");
             process.exit(1);
         }
         throw err;
