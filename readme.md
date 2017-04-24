@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 You'll need to ave installed the following:
 
 ```
-Node.js
+node.js
 ```
 
 ### Installing
@@ -20,8 +20,8 @@ Node.js
 Clone this repo on to your machine and cd into the repo folder
 
 ```
-git clone blah blah
-cd blah blah
+git clone https://github.com/Antownee/ncc-addressbook-export.git ncc-exporter
+cd ncc-exporter
 ```
 
 Install required packages
