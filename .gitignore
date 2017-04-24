@@ -1,0 +1,17 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+
+.jshintrc
+
+node_modules
+testaddresses.txt
+.vscode
