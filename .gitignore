@@ -17,3 +17,5 @@ testaddresses.txt
 .vscode
 
 *.adb
+
+*.exe

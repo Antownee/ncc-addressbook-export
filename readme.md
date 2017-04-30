@@ -14,8 +14,16 @@ You'll need to ave installed the following:
 node.js
 ```
 
-### Installing
+## Installing
 
+You have 2 options here:
+* Clone repo and run on your local machine
+* Download the already compiled windows binary and simply run it from your cmd prompt
+
+### Running compiled binary
+Head over to the releases page and download the  [latest](https://github.com/Antownee/ncc-addressbook-export/releases) release
+
+### Clone repo
 
 Clone this repo on to your machine and cd into the repo folder
 
