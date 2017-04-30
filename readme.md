@@ -2,6 +2,8 @@
 
 Utility to help in moving addresses from NCC into a readable Nanowallet adb file 
 
+## NOTE: BEFORE RUNNING THIS UTILITY, MAKE SURE YOU HAVE YOUR LOCAL NCC INSTANCE RUNNING.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine.
