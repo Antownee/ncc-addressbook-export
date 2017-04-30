@@ -1,0 +1,5 @@
+nexe -i ./app.js -o /out.nex -p C:\Python27
+
+enclose -o nccexporter.exe -a x64 -l error app.js
+
+pkg -t node6-win index.js

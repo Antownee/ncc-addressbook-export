@@ -1,5 +1,6 @@
 'use strict';
 var NEM = require('./NEM.js');
+var utils = require('./utils.js');
 var _ = require('lodash');
 var async = require('async');
 var fs = require('fs');
@@ -12,16 +13,13 @@ var walletName = null;
 async.waterfall([
     //Get user input
     (cb) => {
-        var scriptName = path.basename(__filename);
-        if (process.argv.length <= 3) {
-            console.log("USAGE: " + scriptName + " walletname password");
-            process.exit(1);
-        }
-        var conf = {
-            "addressBook": process.argv[2],
-            "password": process.argv[3]
-        };
-        return cb(null, conf);
+        utils.getUserCredentrials((ans) => {
+            var conf = {
+                "addressBook": ans.walletname,
+                "password": ans.password
+            };
+            return cb(null, conf);
+        });
     },
     (conf, cb) => {
         //Fetch addresses
@@ -56,11 +54,12 @@ async.waterfall([
     },
     (adb, cb) => {
         //Write to file. 
+        //If it exists, overwrite?
         fs.writeFile(`./${walletName}.adb`, adb, (err) => {
             if (err) {
                 return cb(err);
             }
-            console.log("Successfully written to file..");
+            console.log(`Successfully written to file.. ${walletName}.adb`);
             return cb(null);
         });
     }
@@ -71,10 +70,10 @@ async.waterfall([
             console.log("Please make sure that your NCC instance is running prior to running this tool.");
             process.exit(1);
         } else if (err.message === "ADDRESS_BOOK_DOES_NOT_EXIST") {
-            console.log("Invalid Address book name.");
+            console.log("Invalid address book name.");
             process.exit(1);
         } else if (err.message === "ADDRESS_BOOK_PASSWORD_INCORRECT") {
-            console.log("Invalid password.");
+            console.log("Invalid address book password.");
             process.exit(1);
         }
         throw err;
