@@ -23,7 +23,7 @@ You have 2 options here:
 * Download the already compiled windows binary and simply run it from your cmd prompt
 
 ### Running compiled binary
-Head over to the releases page and download the  [latest](https://github.com/Antownee/ncc-addressbook-export/releases) release
+Head over to the releases page and download the  [latest] (https://github.com/Antownee/ncc-addressbook-export/releases) release
 
 ### Clone repo
 
